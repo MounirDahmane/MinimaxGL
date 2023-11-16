@@ -144,6 +144,7 @@ private:
 	void _BindVertexArray(int index);
 	void _BindHashLine();
 	void _squares();
+	//void _BindText();
 	unsigned int _VAO[9], _VBO[9], _lineVAO, _lineVBO;
 	const float** squares = new const float* [9];
 };

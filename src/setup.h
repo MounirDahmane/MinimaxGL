@@ -12,6 +12,7 @@ unsigned int draw = 0;
 
 GLFWwindow* window;
 
+
 void Game_Result()
 {
 	int state = Game::Check_Game();
@@ -69,6 +70,7 @@ void ProcessInput(GLFWwindow* window)
 		Game::reset( counter);
 }
 
+
 class GLwindow
 {
 public:
@@ -96,6 +98,7 @@ public:
 		{
 			std::cout << "ERROR::FAILED_LOADING_GLAD" << std::endl;
 		}
+		glEnable(GL_CULL_FACE);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
