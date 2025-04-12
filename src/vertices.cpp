@@ -1,13 +1,10 @@
 #include "vertices.h"
 
-
-
 VRTX::VRTX()
 {
 	this->_squares();
 	this->_Assign();
 	this->_BindHashLine();
-	//this->_BindText();
 }
 VRTX::~VRTX()
 {
@@ -17,8 +14,6 @@ VRTX::~VRTX()
 		glDeleteVertexArrays(1, &VRTX::_VAO[i]);
 	}
 	delete[] squares;
-	//glDeleteBuffers(1, &VBO_t);
-	//glDeleteVertexArrays(1, &VAO_t);
 }
 
 void VRTX::render(int index)
@@ -45,7 +40,7 @@ void VRTX::_squares()
 	squares[8] = bottom_right_square;
 }
 void VRTX::_Assign()
-{		
+{
 	glGenVertexArrays(9, _VAO);
 	glGenBuffers(9, _VBO);
 	for (int i = 0; i < 9; i++)
@@ -78,4 +73,3 @@ void VRTX::_BindHashLine()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 }
-

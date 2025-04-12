@@ -54,9 +54,6 @@
     <ClCompile Include="src\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Shader.h">
@@ -107,18 +104,12 @@
     <ClInclude Include="src\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\text.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="resources\shaders\FragmentShader.txt" />
     <Text Include="resources\shaders\hash_line_fs.txt" />
     <Text Include="resources\shaders\hash_line_vs.txt" />
     <Text Include="resources\shaders\VertexShader.txt" />
-    <Text Include="resources\shaders\text_vs.txt" />
-    <Text Include="resources\shaders\text_fs.txt" />
-    <Text Include="src\tr.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\Textures\x_texture.png">
@@ -127,8 +118,16 @@
     <Image Include="resources\Textures\o_texture.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resources\game_icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\DJ FKU.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\TicTacToe.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

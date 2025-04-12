@@ -30,7 +30,7 @@ void Texture::assign_texture(unsigned int texture, const char* Path)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-	GLenum format;
+	GLenum format = 0;
 	if (nbrChannels == 1)
 		format = GL_RED;
 	else if (nbrChannels == 3)

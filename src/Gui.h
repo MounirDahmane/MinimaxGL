@@ -21,6 +21,3 @@ public:
 private:
 	bool show_demo_window = true;
 };
-
-
-

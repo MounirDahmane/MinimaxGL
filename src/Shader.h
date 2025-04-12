@@ -1,4 +1,4 @@
-#pragma once // or #ifnded Shader.H \n #define Shader.H ... #endif
+#pragma once
 
 #include <glad/glad.h>
 #include <iostream>
@@ -111,7 +111,7 @@ public:
 	{
 		glUniform3f(glGetUniformLocation(Shader::ID, uniform_name), x, y, z);
 	}
-	
+
 private:
 
 	void CheckError(unsigned int shader, int type)
@@ -152,5 +152,3 @@ private:
 	}
 
 };
-
-

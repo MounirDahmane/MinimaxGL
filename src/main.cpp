@@ -1,10 +1,6 @@
-#if 1
-//#include "Application.h"
-#include "tr.h"
+#include "Application.h"
 int main()
 {
-	//tictactoe tic;
-	//trying trying;
+	tictactoe tic;
 	return 0;
 }
-#endif

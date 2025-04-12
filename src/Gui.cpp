@@ -62,5 +62,3 @@ void Gui::FinalResult(unsigned int& win, unsigned int& lost, unsigned int& draw)
 	else
 		std::cout << "IT IS A DRAW!" << std::endl;
 }
-
-

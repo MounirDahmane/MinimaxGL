@@ -2,7 +2,7 @@
 
 #include "glad/glad.h"
 
-const float Hash_lines[]
+constexpr float Hash_lines[]
 {
 	// vertical up :
 	 1.0f,  0.40f, 0.0f,
@@ -41,7 +41,7 @@ const float Hash_lines[]
 	 0.30f, -1.0f, 0.0f,
 
 };
-const float center_square[]
+constexpr float center_square[]
 {
 	-0.30f,  0.30f, 0.0f, 0.0f, 1.0f,
 	-0.30f, -0.30f, 0.0f, 0.0f, 0.0f,
@@ -50,7 +50,7 @@ const float center_square[]
 	 0.30f,  0.30f, 0.0f, 1.0f, 1.0f,
 	 0.30f, -0.30f, 0.0f, 1.0f, 0.0f,
 };
-const float center_right_square[]
+constexpr float center_right_square[]
 {
 	 0.40f,  0.30f ,0.0f, 0.0f, 1.0f,
 	 0.40f, -0.30f ,0.0f, 0.0f, 0.0f,
@@ -59,7 +59,7 @@ const float center_right_square[]
 	 1.0f , -0.30f ,0.0f, 1.0f, 0.0f,
 	 1.0f,   0.30f ,0.0f, 1.0f, 1.0f,
 };
-const float center_up_square[]
+constexpr float center_up_square[]
 {
 	 -0.30f, 1.0f , 0.0f, 0.0f, 1.0f,
 	 -0.30f, 0.40f, 0.0f, 0.0f, 0.0f,
@@ -68,7 +68,7 @@ const float center_up_square[]
 	  0.30f, 0.40f, 0.0f, 1.0f, 0.0f,
 	  0.30f, 1.0f , 0.0f, 1.0f, 1.0f,
 };
-const float center_down_square[]
+constexpr float center_down_square[]
 {
 	 -0.30f, -1.0f  , 0.0f, 0.0f, 0.0f,
 	 -0.30f, -0.40f , 0.0f, 0.0f, 1.0f,
@@ -77,7 +77,7 @@ const float center_down_square[]
 	  0.30f, -0.40f , 0.0f, 1.0f, 1.0f,
 	  0.30f, -1.0f  , 0.0f, 1.0f, 0.0f,
 };
-const float center_left_square[]
+constexpr float center_left_square[]
 {
 	  -0.40f,  0.30f , 0.0f, 1.0f, 1.0f,
 	  -0.40f, -0.30f , 0.0f, 1.0f, 0.0f,
@@ -86,7 +86,7 @@ const float center_left_square[]
 	  -1.0f , -0.30f , 0.0f, 0.0f, 0.0f,
 	  -1.0f,   0.30f , 0.0f, 0.0f, 1.0f,
 };
-const float top_left_square[]
+constexpr float top_left_square[]
 {
 	  -1.0f,  1.0f  , 0.0f, 0.0f, 1.0f,
 	  -1.0f,  0.40f , 0.0f, 0.0f, 0.0f,
@@ -95,7 +95,7 @@ const float top_left_square[]
 	  -0.40f, 1.0f  , 0.0f, 1.0f, 1.0f,
 	  -1.0f,  1.0f  , 0.0f, 0.0f, 1.0f,
 };
-const float top_right_square[]
+constexpr float top_right_square[]
 {
 	  1.0f,  1.0f  , 0.0f, 1.0f, 1.0f,
 	  1.0f,  0.40f , 0.0f, 1.0f, 0.0f,
@@ -104,7 +104,7 @@ const float top_right_square[]
 	  0.40f, 1.0f  , 0.0f, 0.0f, 1.0f,
 	  1.0f,  1.0f  , 0.0f, 1.0f, 1.0f,
 };
-const float bottom_left_square[]
+constexpr float bottom_left_square[]
 {
 	  -1.0f,  -1.0f  , 0.0f, 0.0f, 0.0f,
 	  -1.0f,  -0.40f , 0.0f, 0.0f, 1.0f,
@@ -113,7 +113,7 @@ const float bottom_left_square[]
 	  -0.40f, -1.0f  , 0.0f, 1.0f, 0.0f,
 	  -1.0f,  -1.0f  , 0.0f, 0.0f, 0.0f,
 };
-const float bottom_right_square[]
+constexpr float bottom_right_square[]
 {
 	  1.0f,  -1.0f  , 0.0f, 1.0f, 0.0f,
 	  1.0f,  -0.40f , 0.0f, 1.0f, 1.0f,
@@ -141,10 +141,8 @@ public:
 private:
 
 	void _Assign();
-	void _BindVertexArray(int index);
 	void _BindHashLine();
 	void _squares();
-	//void _BindText();
 	unsigned int _VAO[9], _VBO[9], _lineVAO, _lineVBO;
 	const float** squares = new const float* [9];
 };

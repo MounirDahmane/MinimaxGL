@@ -6,79 +6,46 @@
 
 namespace Game
 {
-	#define WIN 1000
-	#define	DRAW 0
-	#define LOSS -1000
-	
-	#define AI_MARKER 'O'
-	#define PLAYER_MARKER 'X'
-	#define EMPTY_SPACE '-'
-	
+#define WIN 1000
+#define	DRAW 0
+#define LOSS -1000
+
+#define AI_MARKER 'O'
+#define PLAYER_MARKER 'X'
+#define EMPTY_SPACE '-'
+
 	static int Game_over = 0;
 	static char Turn = PLAYER_MARKER;
-	char board[9] = {'-', '-', '-', 
-					 '-', '-', '-', 
-					 '-', '-', '-'};
-	
-	// 1 for else
-	int  Check_Game () 
+	char board[9] = {'-', '-', '-',
+					 '-', '-', '-',
+					 '-', '-', '-' };
+
+	int Check_Game()
 	{
 		// check rows and columns
 		for (int i = 0; i < 3; i++)
 		{
-			if (board[(i * 3)] == board[(i * 3) + 1] && board[(i * 3) + 1] == board[(i * 3) + 2])
+			if (board[(i * 3)] == board[(i * 3) + 1] && board[(i * 3) + 1] == board[(i * 3) + 2] && board[(i * 3) + 2] != '-')
 			{
-				if (board[(i * 3) + 2] == 'X')
-				{
-					Game_over = 1;
-					return WIN;
-				}
-				else if (board[(i * 3) + 2] == 'O')
-				{
-					Game_over = 1;
-					return LOSS;
-				}
+				Game_over = 1;
+				return (board[(i * 3) + 2] == 'X') ? WIN : LOSS;
 			}
-			if (board[i] == board[i + 3] && board[i + 3] == board[i + 6])
+			else if (board[i] == board[i + 3] && board[i + 3] == board[i + 6] && board[i + 6] != '-')
 			{
-				if (board[i + 6] == 'X')
-				{
-					Game_over = 1;
-					return WIN;
-				}
-				else if (board[i + 6] == 'O')
-				{
-					Game_over = 1;
-					return LOSS;
-				}
+				Game_over = 1;
+				return (board[i + 6] == 'X') ? WIN : LOSS;
 			}
 		}
 		// checking diagnols
-		if (board[0] == board[4] && board[4] == board[8])
+		if (board[0] == board[4] && board[4] == board[8] && board[8] != '-')
 		{
-				if (board[8] == 'X')
-				{
-					Game_over = 1;
-					return WIN;
-				}
-				else if (board[8] == 'O')
-				{
-					Game_over = 1;
-					return LOSS;
-				}
+			Game_over = 1;
+			return (board[8] == 'X') ? WIN : LOSS;
 		}
-		if (board[2] == board[4] && board[4] == board[6])
+		if (board[2] == board[4] && board[4] == board[6] && board[6] != '-')
 		{
-			if (board[6] == 'X')
-			{
-				Game_over = 1;
-				return WIN;
-			}
-			else if (board[6] == 'O')
-			{
-				Game_over = 1;
-				return LOSS;
-			}
+			Game_over = 1;
+			return (board[6] == 'X') ? WIN : LOSS;
 		}
 		// check if the game has been ended in draw
 		int counter = 0;
@@ -238,8 +205,8 @@ namespace Game
 				return;
 			board[ai_move] = Turn;
 			Turn = PLAYER_MARKER;
-			if(counter != 9)
-			counter++;
+			if (counter != 9)
+				counter++;
 		}
 	}
 }
