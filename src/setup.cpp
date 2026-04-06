@@ -8,7 +8,9 @@
 // clang-format on
 
 #include "setup.h"
+
 #include "Game.h"
+
 #include <iostream>
 
 // --- Public Globals ---
@@ -24,53 +26,53 @@ unsigned int draw = 0;
 // --- Private File Data ---
 namespace
 {
-    /**
-     * @brief GLFW callback for handling window resize events.
-     */
-    void FrameBuffer_size_callback(GLFWwindow *win_ptr, int width, int height)
+/**
+ * @brief GLFW callback for handling window resize events.
+ */
+void FrameBuffer_size_callback(GLFWwindow *win_ptr, int width, int height)
+{
+    glViewport(0, 0, width, height);
+    window_width = width;
+    window_height = height;
+}
+
+/**
+ * @brief GLFW callback for handling mouse input.
+ */
+void mouse_callback(GLFWwindow *win_ptr, int button, int action, int mods)
+{
+    // IMPORTANT: Ignore clicks completely if the game is over!
+    // The ImGui popup handles restarting now.
+    if (Game::Check_Game() != 1)
+        return;
+
+    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
     {
-        glViewport(0, 0, width, height);
-        window_width = width;
-        window_height = height;
+        double x, y;
+        glfwGetCursorPos(win_ptr, &x, &y);
+
+        if (x < 240 && y < 235)
+            Game::logic(0, win_ptr, counter);
+        else if (x > 280 && x < 515 && y < 235)
+            Game::logic(1, win_ptr, counter);
+        else if (x > 560 && x < 800 && y < 235)
+            Game::logic(2, win_ptr, counter);
+        else if (x < 240 && y > 280 && y < 520)
+            Game::logic(3, win_ptr, counter);
+        else if (x > 280 && x < 515 && y > 280 && y < 515)
+            Game::logic(4, win_ptr, counter);
+        else if (x > 560 && x < 800 && y > 280 && y < 516)
+            Game::logic(5, win_ptr, counter);
+        else if (x < 240 && y > 560 && y < 800)
+            Game::logic(6, win_ptr, counter);
+        else if (x > 280 && x < 520 && y > 560 && y < 800)
+            Game::logic(7, win_ptr, counter);
+        else if (x > 560 && x < 800 && y > 560 && y < 800)
+            Game::logic(8, win_ptr, counter);
     }
 
-    /**
-     * @brief GLFW callback for handling mouse input.
-     */
-    void mouse_callback(GLFWwindow *win_ptr, int button, int action, int mods)
-    {
-        // IMPORTANT: Ignore clicks completely if the game is over!
-        // The ImGui popup handles restarting now.
-        if (Game::Check_Game() != 1) 
-            return;
-
-        if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
-        {
-            double x, y;
-            glfwGetCursorPos(win_ptr, &x, &y);
-
-            if (x < 240 && y < 235)
-                Game::logic(0, win_ptr, counter);
-            else if (x > 280 && x < 515 && y < 235)
-                Game::logic(1, win_ptr, counter);
-            else if (x > 560 && x < 800 && y < 235)
-                Game::logic(2, win_ptr, counter);
-            else if (x < 240 && y > 280 && y < 520)
-                Game::logic(3, win_ptr, counter);
-            else if (x > 280 && x < 515 && y > 280 && y < 515)
-                Game::logic(4, win_ptr, counter);
-            else if (x > 560 && x < 800 && y > 280 && y < 516)
-                Game::logic(5, win_ptr, counter);
-            else if (x < 240 && y > 560 && y < 800)
-                Game::logic(6, win_ptr, counter);
-            else if (x > 280 && x < 520 && y > 560 && y < 800)
-                Game::logic(7, win_ptr, counter);
-            else if (x > 560 && x < 800 && y > 560 && y < 800)
-                Game::logic(8, win_ptr, counter);
-        }
-
-        Game::AI(win_ptr, counter);
-    }
+    Game::AI(win_ptr, counter);
+}
 } // namespace
 
 // --- Implementation ---

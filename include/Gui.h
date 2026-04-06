@@ -17,7 +17,7 @@ public:
      * @brief Initializes the ImGui context, settings, and backends.
      * @param window The active GLFW window.
      */
-    Gui(GLFWwindow* window);
+    Gui(GLFWwindow *window);
 
     /**
      * @brief Shuts down the ImGui context and cleans up memory.
@@ -25,8 +25,8 @@ public:
     ~Gui();
 
     // Prevent copying to avoid ImGui context corruption
-    Gui(const Gui&) = delete;
-    Gui& operator=(const Gui&) = delete;
+    Gui(const Gui &) = delete;
+    Gui &operator=(const Gui &) = delete;
 
     /**
      * @brief Renders the ImGui settings window and the Game Over popup.
@@ -37,7 +37,14 @@ public:
      * @param lost Total AI wins.
      * @param draw Total draws.
      */
-    void render(GLFWwindow* window, int gameState, int& counter, unsigned int& win, unsigned int& lost, unsigned int& draw);
+    void render(
+        GLFWwindow *window,
+        int gameState,
+        int &counter,
+        unsigned int &win,
+        unsigned int &lost,
+        unsigned int &draw,
+        float deltaTime);
 
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.0f);
     ImVec4 Hash_color = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
