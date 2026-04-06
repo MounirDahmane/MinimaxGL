@@ -1,0 +1,45 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+UseTab: Never
+ColumnLimit: 100
+
+# Standard C++ Bracing (Allman Style)
+BreakBeforeBraces: Allman
+
+# Class/Struct Refinements
+AccessModifierOffset: -4
+NamespaceIndentation: None
+
+# Switch/Case Logic
+IndentCaseLabels: true
+IndentCaseBlocks: true
+
+# Pointer/Reference Style
+PointerAlignment: Right
+DerivePointerAlignment: false
+
+# Line Break Logic for Functions & Calls
+AlwaysBreakAfterReturnType: None
+# Fixed the typo below:
+PenaltyReturnTypeOnItsOwnLine: 1000
+BinPackParameters: false
+BinPackArguments: false
+AlignAfterOpenBracket: AlwaysBreak
+
+# Cleanliness & Whitespace
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+AlignTrailingComments: true
+
+# Includes
+SortIncludes: true
+IncludeBlocks: Regroup
+
+# Constructor Initializers
+ConstructorInitializerIndentWidth: 4
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+AllowAllConstructorInitializersOnNextLine: true
+PackConstructorInitializers: Never
+
+# Modern C++ Features
+Standard: Latest

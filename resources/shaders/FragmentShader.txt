@@ -1,17 +1,10 @@
 #version 330 core
-
 out vec4 FragColor;
 
-in vec2 TexCord;
-uniform sampler2D sampler;
-
-uniform int none;
-uniform vec3 aColor;
+in vec2 TexCoord;
+uniform sampler2D textureSampler; 
 
 void main()
 {
-	if(none == 1)
-		FragColor =  vec4(aColor, 1.0f);
-	else
-		FragColor =  texture(sampler, TexCord);
-}           
+    FragColor = texture(textureSampler, TexCoord);
+}
